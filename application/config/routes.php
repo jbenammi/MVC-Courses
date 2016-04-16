@@ -40,6 +40,8 @@
 
 $route['default_controller'] = "Courses";
 $route['add_course'] = "courses/add_course";
+$route['remove/(:num)'] = "courses/destroy/$1";
+$route['delete/(:num)'] = "courses/remove/$1";
 $route['404_override'] = '';
 
 
