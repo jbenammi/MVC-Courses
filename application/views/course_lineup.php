@@ -1,5 +1,5 @@
 <?php
-// var_dump($course_info);
+// var_dump($errors);
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,20 +13,29 @@
 <body>
 	<div id="addcourse">
 		<h3>Add a new course</h3>
-		 	<ul class="labels">
-		 		<li>Name:</li>
-		 		<li>Description:</li>
-		 	</ul>
-		 	<ul>
 		<form action="/Courses/add_course" method="post">
-		 		<li><input type="text" name="name" placeholder="Course Name"></li>
-		 		<li><textarea name="description" placeholder="Course Description"></textarea></li>
-		    <input class="button" type="submit" value="Add New Course">
-		 	</ul>
+	 	<div class="input"><?php 
+	 		if (isset($errors['errors']['coursename'])){?>
+	 			<p class="warning"><?= $errors['errors']['coursename']; ?></p>
+	 		<?php }; 
+	 		if (isset($errors['errors']['namelength'])){?>
+	 			<p class="warning"><?= $errors['errors']['namelength']; ?></p>
+	 		<?php }; ?>	 		
+	 		<p class="labels">Name:</p>
+		 	<input type="text" name="name" placeholder="Course Name">
+	 	</div>
+	 	<div class="input"><?php 
+	 		if (isset($errors['errors']['coursedescription'])){ ?>
+	 			<p class="warning"><?= $errors['errors']['coursedescription']; ?></p>
+	 		<?php }; ?>
+	 		<p class="labels">Description:</p>
+			<textarea name="description" placeholder="Course Description"></textarea>
+		</div>
+	    <input class="button" type="submit" value="Add New Course">
 		</form>
 	</div>
 	<div id="tableinfo">
-		<h3>Courses:</h3>
+		<h3>Courses</h3>
 		<table>
 			<thead>
 				<th>Course Name</th>
@@ -39,9 +48,15 @@
 				for ($i = 0; $i < count($course_info); $i++) { ?>
 					<tr>
 				<?php foreach ($course_info[$i] as $key => $value) {
-					if($key !== 'id') { ?>
-					<td><?= $value ?></td>
-					<?php } 
+					if($key !== 'id') { 
+						if ($key == 'created_on') { ?>
+							<td><?= date("F jS, Y h:i:s A", strtotime($value)); ?></td>
+						<?php
+						}
+						else {	?>
+						<td><?= $value ?></td>
+						<?php } ?>
+					<?php }
 					} ?>
 					<td><a href="/remove/<?= $course_info[$i]['id'] ?>" >remove</a></td>
 					</tr>

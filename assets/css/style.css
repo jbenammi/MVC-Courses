@@ -1,6 +1,7 @@
 * {
 	margin: 0%;
 	padding: 0px;
+	font-family: arial, sans-serif;
 }
 h3, h2 {
 text-align: center;
@@ -17,38 +18,52 @@ text-align: center;
 	width: 18%;
 	margin: 2% auto;
 }
-ul {
-	width: 60%;
-	color: blue;
-	font-weight: bold;
-	display: inline-block;
-	vertical-align: top;
+.input {
+	margin: 2% 0%; 
 }
 .labels {
 	width: 20%;
 	text-align: right;
+	display: inline-block;
+	vertical-align: top;
+	font-weight: bold;
 }
-ul li {
-	list-style: none;
-	padding: 5px;
+.label {
+	width: 30%;
+	text-align: right;
+	display: inline-block;
+	vertical-align: top;
+	font-weight: bold;
+}
+.descriptions {
+	width: 60%;
+	padding-left: 10px;
+	display: inline-block;
+	vertical-align: top;
 }
 input, textarea {
-	width: 100%;
+	width: 60%;
 	border-radius: 5px;
 	padding: 5px;
+	border: 1px solid #888888;
 }
 #tableinfo {
 	width: 70%;
 	margin: 0% auto;
 }
 table {
+	margin-top: 2%;
 	border-collapse: collapse;
 	width: 100%;
+	font-size: .8rem;
 }
 td, th {
 	text-align: left;
 	border: 1px solid black;
 	padding: 5px;
+}
+tr td:nth-child(2) {
+	width: 50%;
 }
 a {
 	display: inline-block;
@@ -64,4 +79,13 @@ button, .button {
 	border-radius: 5px;
 	border: none;
 	box-shadow: 3px 3px 3px #888888;
+}
+input.button {
+	margin: 0% auto;
+	display: block;
+}
+.warning {
+	margin-left: 20%;
+	padding: 7px;
+	color: red;
 }

@@ -13,14 +13,14 @@
  <body>
  	<div id="container">
  		<h2>Delete Course Information?</h2>
- 		<ul class="labels">
- 			<li>Course Name:</li>
- 			<li>Course Description:</li>
- 		</ul>
- 		<ul>
- 			<li><?= $course_info['name'] ?></li>
- 			<li><?= $course_info['description'] ?></li>
- 		</ul>
+ 		<div class="input">
+ 			<p class="label">Course Name:</p>
+ 			<p class="descriptions"><?= $course_info['name'] ?></p>
+ 		</div>
+ 		<div class="input">
+ 			<p class="label">Course Description:</p>
+ 			<p class="descriptions"><?= $course_info['description'] ?></p>
+ 		</div>
  	</div>
  	<div id="buttons">
  	<a href="/courses"><button>No Thanks</button></a>
